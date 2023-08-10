@@ -1,0 +1,71 @@
+.Card__cont {
+  margin: 12px;
+  padding: 15px;
+  overflow-y: scroll;
+  position: relative;
+  background: rgba(255, 255, 255, 0.79);
+transition: all 0.5s ease;
+  /* backdrop-filter: blur(8px); */
+  border-radius: 10px;
+}
+
+.Card__cont::-webkit-scrollbar {
+  width: 3px;
+}
+
+.Card__cont::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 8px;
+}
+
+.image__slash {
+  position: absolute;
+  top: -45px;
+  border-radius: 50%;
+  left: 40%;
+  z-index: 100;
+}
+
+.instagram__cont {
+  cursor: pointer;
+  border: 1px solid rgb(0, 119, 255);
+  outline: 2px solid transparent;
+  text-align: center;
+  border-radius: 8px ;
+  width: 10vw;
+  padding: 1%;
+  margin-top: 13%;
+  color: rgb(53, 52, 52);
+  background: transparent;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.instagram__cont:hover{
+  background: rgba(255, 255, 255, 0.763);
+  backdrop-filter: blur(10px);
+  color:black;
+  border:1.5px solid rgb(0, 119, 255);
+}
+
+.port__link {
+  margin-top: 15px;
+  color: white;
+}
+
+.port__link a {
+  text-decoration: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  outline: none;
+  padding: 2%;
+  cursor: pointer;
+  background: linear-gradient(190deg, rgb(0, 0, 0), rgb(33, 33, 33));
+  color: whitesmoke;
+  transition: all 0.5s ease;
+}
+
+.port__link a:focus {
+  border: 2px solid rgb(0, 145, 255);
+  background: rgb(29, 0, 0);
+}

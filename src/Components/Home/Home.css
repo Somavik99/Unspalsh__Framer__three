@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Alike&family=Comfortaa&family=Delicious+Handrawn&family=Krub&family=Lobster&family=Montserrat:wght@300&family=Playfair+Display&family=Poppins:wght@300&family=Ubuntu:wght@300&family=Varela+Round&display=swap");
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 5vw;
+}
+
+.home__cont {
+  margin: 5vw;
+  padding: 2%;
+  overflow-x: scroll;
+}
+
+.home__cont::-webkit-scrollbar {
+  height: 5px;
+}
+
+.home__cont::-webkit-scrollbar-thumb {
+  height: 5px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.header {
+  background-image: url("https://images.unsplash.com/photo-1608501078713-8e445a709b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 20%;
+  text-align: center;
+  top: 0;
+  font-family: "Lobster", cursive;
+}
+
+.search__btn {
+  border: 2px solid transparent;
+  padding: 0.8%;
+  border-radius: 50%;
+  z-index: 150;
+  background: white;
+  outline: none;
+transform:rotateZ(-50deg) ;
+  transition: all 0.5s ease;
+}
+
+.search__btn:hover{
+    border: 2px solid blueviolet;
+    transform: rotateZ(0);
+   
+}
