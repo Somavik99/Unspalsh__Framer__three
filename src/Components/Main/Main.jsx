@@ -25,9 +25,14 @@ const Main = () => {
     }, 2000);
 
     return () => {
-      clearTimeout(interval);
+      clearInterval(interval);
     };
   }, [CurrentIndex]);
+
+if(!Array.isArray(Images) && Images.length<=0){
+return null;
+}
+
 
   return (
     <div style={{ boxShadow: " 0 0 2rem  -2rem   tomato" }}>
@@ -55,7 +60,7 @@ const Main = () => {
         <button onClick={PreviousImage}>
           <BsArrowLeft />
         </button>
-        {Array.isArray(Images) &&
+        {
           Images.map((img, i) => {
             return (
               <div key={i}>
