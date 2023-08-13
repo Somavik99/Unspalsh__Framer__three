@@ -1,22 +1,25 @@
 import { useEffect, useState } from "react";
-import Images from "../../Components/ComponentVariants/ImageData";
+import { Images } from "../ComponentVariants/ImageData";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import "./Main.css";
 
 const Main = () => {
   const [CurrentIndex, setCurrentIndex] = useState(0);
 
+  const ImageLength = Images.length;
+
   const PreviousImage = (prev) => {
-    setCurrentIndex(CurrentIndex === 0 ? Images.length - 1 : prev - 1);
+    setCurrentIndex(CurrentIndex === 0 ? ImageLength - 1 : prev - 1);
   };
 
   const NextImage = (next) => {
-    setCurrentIndex(CurrentIndex === Images.length - 1 ? 0 : next + 1);
+    setCurrentIndex(CurrentIndex === ImageLength - 1 ? 0 : next + 1);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      return setCurrentIndex((n) => {
-        n > CurrentIndex
+      setCurrentIndex((n) => {
+        return n > CurrentIndex
           ? Images[CurrentIndex]
           : n === Images.length - 1
           ? 0
@@ -29,10 +32,9 @@ const Main = () => {
     };
   }, [CurrentIndex]);
 
-if(!Array.isArray(Images) && Images.length<=0){
-return null;
-}
-
+  if (!Array.isArray(Images) && ImageLength <= 0) {
+    return null;
+  }
 
   return (
     <div style={{ boxShadow: " 0 0 2rem  -2rem   tomato" }}>
@@ -57,17 +59,20 @@ return null;
           alignItems: "center",
         }}
       >
-        <button onClick={PreviousImage}>
-          <BsArrowLeft />
+        <button
+          className="Prev__btn"
+          onClick={() => PreviousImage(CurrentIndex)}
+        >
+          <BsArrowLeft style={{ marginBottom: "5px" }} />
         </button>
-        {
-          Images.map((img, i) => {
+        <div>
+          {Images.map((img, index) => {
             return (
-              <div key={i}>
-                {i === CurrentIndex && (
+              <div key={index}>
+                {index === CurrentIndex ? (
                   <img
                     src={img.image}
-                    alt="mountains"
+                    alt={img.id}
                     style={{
                       width: "68vw",
                       height: "80vh",
@@ -77,12 +82,17 @@ return null;
                         "5px 5px 0.5rem 0.55rem rgba(0.5,0.5,0.5,0.4) ",
                     }}
                   />
-                )}
+                ) : null}
               </div>
             );
           })}
-        <button onClick={NextImage}>
-          <BsArrowRight />
+        </div>
+        <button
+          
+          className="Next__btn"
+          onClick={() => NextImage(CurrentIndex)}
+        >
+          <BsArrowRight style={{ marginBottom: "5px" }}/>
         </button>
       </div>
     </div>

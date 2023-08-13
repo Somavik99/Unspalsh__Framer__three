@@ -1,0 +1,59 @@
+:root {
+  --btnBackground: rgb(255, 255, 255);
+  --radius: 50%;
+  --shadow: 0.2px 0.2px 0.2px 3px rgba(0, 0, 0, 0.264);
+  --height: 80px;
+  --width: 80px;
+}
+
+.Next__btn {
+  margin-left: 6%;
+  background: var(--btnBackground);
+  border-radius: var(--radius);
+  height: var(--height);
+  width: var(--width);
+  font-size: 20px;
+  text-align: center;
+outline: none;
+  transition: 0.5s ease-out;
+  border:  2px solid transparent;
+}
+
+.Next__btn:hover {
+  transform: scaleY(1.1) scaleX(1.1);
+  box-shadow: var(--shadow);
+  border:  2px solid rgb(199, 61, 61);
+}
+
+.Next__btn:focus{
+   background: rgb(228, 20, 47);
+   border:2px solid white;
+    color: rgb(255, 255, 255);
+}
+
+.Prev__btn{
+    
+    background: var(--btnBackground);
+    border-radius: var(--radius);
+    height: var(--height);
+    width: var(--width);
+    font-size: 20px;
+    text-align: center;
+  outline: none;
+    transition: 0.5s ease-out;
+    border:  2px 
+}
+
+
+.Prev__btn:hover{
+    transform: scaleY(1.1) scaleX(1.1);
+    box-shadow: var(--shadow);
+    border:  2px solid rgb(199, 61, 61);
+}
+
+
+.Prev__btn:focus{
+    background: rgb(228, 20, 47);
+    border:2px solid white;
+     color: rgb(255, 255, 255); 
+}
