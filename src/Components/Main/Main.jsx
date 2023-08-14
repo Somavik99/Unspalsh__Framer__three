@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
 import { Images } from "../ComponentVariants/ImageData";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { motion } from "framer-motion";
 import "./Main.css";
 
 const Main = () => {
   const [CurrentIndex, setCurrentIndex] = useState(0);
+  const [ClickPrev, setClickPrev] = useState(false);
+  const [ClickNext, setClickNext] = useState(false);
 
   const ImageLength = Images.length;
 
   const PreviousImage = (prev) => {
     setCurrentIndex(CurrentIndex === 0 ? ImageLength - 1 : prev - 1);
+    setClickPrev((pre) => !pre);
   };
 
   const NextImage = (next) => {
     setCurrentIndex(CurrentIndex === ImageLength - 1 ? 0 : next + 1);
+    setClickNext((nex) => !nex);
   };
 
   useEffect(() => {
@@ -68,9 +73,22 @@ const Main = () => {
         <div>
           {Images.map((img, index) => {
             return (
-              <div key={index}>
+              <motion.div key={index}>
                 {index === CurrentIndex ? (
-                  <img
+                  <motion.img
+                    // layout
+                    initial={{
+                      x: 0,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      x: 0,
+                      opacity: 1,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.5,
+                    }}
                     src={img.image}
                     alt={img.id}
                     style={{
@@ -80,19 +98,17 @@ const Main = () => {
                       margin: "5%",
                       boxShadow:
                         "5px 5px 0.5rem 0.55rem rgba(0.5,0.5,0.5,0.4) ",
+                      transform: `${!ClickPrev}?scaleX(-100px):${!ClickNext}?scaleX(100px):scale(0)`,
                     }}
                   />
                 ) : null}
-              </div>
+              </motion.div>
             );
           })}
+          <div className="progress__bar" style={{ margin: "auto" }} />
         </div>
-        <button
-          
-          className="Next__btn"
-          onClick={() => NextImage(CurrentIndex)}
-        >
-          <BsArrowRight style={{ marginBottom: "5px" }}/>
+        <button className="Next__btn" onClick={() => NextImage(CurrentIndex)}>
+          <BsArrowRight style={{ marginBottom: "5px" }} />
         </button>
       </div>
     </div>
