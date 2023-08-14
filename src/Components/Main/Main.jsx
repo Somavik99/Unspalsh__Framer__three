@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Images } from "../ComponentVariants/ImageData";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { motion } from "framer-motion";
+import { motion, spring } from "framer-motion";
 import "./Main.css";
 
 const Main = () => {
@@ -13,12 +13,12 @@ const Main = () => {
 
   const PreviousImage = (prev) => {
     setCurrentIndex(CurrentIndex === 0 ? ImageLength - 1 : prev - 1);
-    setClickPrev((pre) => !pre);
+    setClickPrev(!ClickPrev);
   };
 
   const NextImage = (next) => {
     setCurrentIndex(CurrentIndex === ImageLength - 1 ? 0 : next + 1);
-    setClickNext((nex) => !nex);
+    setClickNext(!ClickNext);
   };
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Main = () => {
           ? 0
           : n + 1;
       });
-    }, 2000);
+    }, 4000);
 
     return () => {
       clearInterval(interval);
@@ -64,30 +64,39 @@ const Main = () => {
           alignItems: "center",
         }}
       >
-        <button
+        <motion.button
+          whileTap={{
+            scale: 0.5,
+          }}
           className="Prev__btn"
           onClick={() => PreviousImage(CurrentIndex)}
         >
           <BsArrowLeft style={{ marginBottom: "5px" }} />
-        </button>
+        </motion.button>
         <div>
           {Images.map((img, index) => {
             return (
-              <motion.div key={index}>
+              <motion.div  key={index}>
                 {index === CurrentIndex ? (
                   <motion.img
-                    // layout
-                    initial={{
-                      x: 0,
-                      opacity: 0,
-                    }}
-                    animate={{
-                      x: 0,
-                      opacity: 1,
-                    }}
+                  layout
+                    initial={
+                  {
+                        y: 0,
+                        opacity: 0,
+                      }
+                    }
+                    animate={
+                       {
+                        y: 0,
+                        opacity: 1,
+                      }
+                    }
+                    translate="slide"
                     transition={{
-                      duration: 0.5,
-                      delay: 0.5,
+                      type:spring,
+                      duration: 0.2,
+                      delay: 0.1,
                     }}
                     src={img.image}
                     alt={img.id}
@@ -98,18 +107,25 @@ const Main = () => {
                       margin: "5%",
                       boxShadow:
                         "5px 5px 0.5rem 0.55rem rgba(0.5,0.5,0.5,0.4) ",
-                      transform: `${!ClickPrev}?scaleX(-100px):${!ClickNext}?scaleX(100px):scale(0)`,
+                      transform: `scaleX(${ClickNext}? 100px:${ClickPrev}? -100px: 0)`,
                     }}
                   />
                 ) : null}
               </motion.div>
             );
           })}
-          <div className="progress__bar" style={{ margin: "auto" }} />
+          <div className="progress__bar" style={{ margin: "auto" }}> <div   /></div>
+         
         </div>
-        <button className="Next__btn" onClick={() => NextImage(CurrentIndex)}>
+        <motion.button
+          whileTap={{
+            scale: 0.5,
+          }}
+          className="Next__btn"
+          onClick={() => NextImage(CurrentIndex)}
+        >
           <BsArrowRight style={{ marginBottom: "5px" }} />
-        </button>
+        </motion.button>
       </div>
     </div>
   );

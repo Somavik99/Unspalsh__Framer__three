@@ -20,4 +20,15 @@
 }
 ]
 
-export  {Images};
+const ImageStyles = {
+    width: "68vw",
+    height: "80vh",
+    borderRadius: "20px",
+    margin: "5%",
+    boxShadow:
+      "5px 5px 0.5rem 0.55rem rgba(0.5,0.5,0.5,0.4) ",
+   
+ 
+}
+
+export  {Images,ImageStyles};
