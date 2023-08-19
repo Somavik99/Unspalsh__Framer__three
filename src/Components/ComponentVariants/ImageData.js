@@ -56,9 +56,10 @@ const InnerContainerStyles = {
             alignItems: "center",
 } 
 
-
-const useMotionValues=()=>{
+//Main.jsx-->
 //Framer Hooks
+const useMotionValues=()=>{
+
 const x = useMotionValue(0);
 const y = useMotionValue(0);
 const nX = useMotionValue(100);

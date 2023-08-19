@@ -2,8 +2,8 @@
 
 const SliderImage=()=> {
   return (
-    <div>
-      
+    <div className="Slider__Cont">
+      <h1 style={{color:"whitesmoke"}}>Image Slider</h1>
     </div>
   )
 }
