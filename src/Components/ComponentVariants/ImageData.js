@@ -21,14 +21,22 @@
 ]
 
 const ImageStyles = {
-    width: "68vw",
-    height: "80vh",
+    width: "48vw",
+    height: "50vh",
     borderRadius: "20px",
     margin: "5%",
-    boxShadow:
-      "5px 5px 0.5rem 0.55rem rgba(0.5,0.5,0.5,0.4) ",
-   
- 
+    boxShadow:"5px 5px 0.5rem 0.55rem rgba(0.5,0.5,0.5,0.4) ",
 }
 
-export  {Images,ImageStyles};
+const Heading = {
+           marginTop: "-8%",
+          textAlign: "center",
+          color: "whitesmoke",
+          fontWeight: "700",
+          fontSize: "80px",
+          fontStyle: "italic",
+          textShadow: "0.8px 0.8px 3px 3px  rgba(0.9,0.9,0.9,0.5)",
+          padding: "8px",
+}
+
+export  {Images,ImageStyles,Heading};
