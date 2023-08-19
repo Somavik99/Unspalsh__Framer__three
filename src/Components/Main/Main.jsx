@@ -3,10 +3,10 @@ import {
   Heading,
   ImageStyles,
   Images,
-  InnerContainerStyles,
+  useMotionValues,
 } from "../ComponentVariants/ImageData";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import "./Main.css";
 
 const Main = () => {
@@ -17,7 +17,19 @@ const Main = () => {
 
   //Custom Hook
 
-  const { x, y, nX, rotateX, rotateY, willChange } = useMotionValue();
+  const { x, y, nX, rotateX, rotateY, willChange } = useMotionValues();
+
+  const framerStyle = {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+   useMotionValues,
+    y,
+    rotateX,
+    rotateY,
+    z: 100,
+  };
 
   //Functions and Conditions
   const ImageLength = Images.length;
@@ -63,7 +75,13 @@ const Main = () => {
           perspective: 1500,
         }}
       >
-        <motion.div style={InnerContainerStyles}>
+        <motion.div
+          style={framerStyle}
+          drag
+          dragElastic={0.18}
+          dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+          whileTap={{ cursor: "grabbing" }}
+        >
           <motion.button
             whileTap={{
               scale: 0.5,

@@ -49,12 +49,7 @@ const Heading = {
           padding: "8px",
 }
 
-const InnerContainerStyles = {
-    width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-} 
+ 
 
 //Main.jsx-->
 //Framer Hooks
@@ -68,4 +63,7 @@ const rotateY = useTransform(x, [100, -100], [-30, 30]);
 const willChange = useWillChange();
 return {x,y,nX,rotateX,rotateY,willChange};
 }
-export  {useMotionValues,Images,ImageStyles,Heading,InnerContainerStyles};
+
+
+
+export  {useMotionValues,Images,ImageStyles,Heading};

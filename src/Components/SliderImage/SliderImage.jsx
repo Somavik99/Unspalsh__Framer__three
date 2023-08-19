@@ -1,4 +1,4 @@
-
+import "./SliderImage.css"
 
 const SliderImage=()=> {
   return (
