@@ -1,3 +1,13 @@
+import {
+    useMotionValue,
+    useTransform,
+    useWillChange,
+}
+ from "framer-motion";
+
+
+ 
+ 
  const Images = [
 {id:'1',
     image:"https://images.unsplash.com/photo-1604114005871-c163692e652c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
@@ -39,4 +49,22 @@ const Heading = {
           padding: "8px",
 }
 
-export  {Images,ImageStyles,Heading};
+const InnerContainerStyles = {
+    width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+} 
+
+
+const useMotionValues=()=>{
+//Framer Hooks
+const x = useMotionValue(0);
+const y = useMotionValue(0);
+const nX = useMotionValue(100);
+const rotateX = useTransform(y, [-100, 100], [30, -30]);
+const rotateY = useTransform(x, [100, -100], [-30, 30]);
+const willChange = useWillChange();
+return {x,y,nX,rotateX,rotateY,willChange};
+}
+export  {useMotionValues,Images,ImageStyles,Heading,InnerContainerStyles};
