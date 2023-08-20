@@ -11,7 +11,7 @@
 }
 
 .Next__btn {
-  margin-left: 6%;
+  margin-left: 5%;
   background: var(--btnBackground);
   border-radius: var(--radius);
   height: var(--height);

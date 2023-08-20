@@ -24,11 +24,11 @@ const Main = () => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-   useMotionValues,
-    y,
-    rotateX,
-    rotateY,
-    z: 100,
+    x: x,
+    y: y,
+    rotateX: rotateX,
+    rotateY: rotateY,
+    z: -1,
   };
 
   //Functions and Conditions
@@ -80,7 +80,7 @@ const Main = () => {
           drag
           dragElastic={0.18}
           dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-          whileTap={{ cursor: "grabbing" }}
+          whileTap={{ cursor: "grabbing" }} 
         >
           <motion.button
             whileTap={{
